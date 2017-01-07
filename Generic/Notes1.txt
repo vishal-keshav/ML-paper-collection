@@ -7,7 +7,6 @@ Notes for "A few useful things to know about machine learning"
 . The way we reperesrnt our data to computer and hence the set of classifiers (hypothesis space) plays an important step in choosing one ml approach.
 . Evaluation function (scoring function) is needed to pull out bad classifiers from the bad ones.
 . If evaluation functions have equivalent scores for several classifiers, one with highere efficieny of learning is choses and this sis where we look for optimization technique for learners.
-. https://www.quora.com/What-is-hypothesis-in-machine-learning
 . It is easy to get hope of false confidance of getting higher accuracy of model on smaller data set, unless a small data aset is kept seperate and unseen.
 . For parameter tuning nd testing, cross-validation is the best thing to do.
 . We optimize function we dont know using training error to reduce test error, so many a times, local optimum(greedy) might produce better result than global optimum.
@@ -19,4 +18,7 @@ Notes for "A few useful things to know about machine learning"
 . Overfitting can be avoided by cross-validation, but popular one is regularization term to evalution function that penalize classifier with more structure.
 . In case of scarse data availability, statistical significance test such as chi-squared can be done before adding new strucutre.
 . It is easy to avoid overfitting(variance) by underfitting (bias) which is wrong thing to do a well. hence, simultaneously avoiding both require learning a perfect classifier.
+. Curse of dimentionality can outweight the more number of feature collection for an example problem.
+. The main role of theoretical guarantee in machine learning is not as a criterion for practicle decisions, but as a source of understanding and driving force for algorithm design.
+. If learner A is better than learner B given infinite data, B is often better than A given finite data.
 . 
