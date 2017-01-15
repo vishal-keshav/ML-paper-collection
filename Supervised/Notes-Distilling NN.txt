@@ -1,0 +1,2 @@
+Problem statement: Deploying learned models (composed of different neural networks) such that averaged out results give more accuracy has a problem of large memory and cpu time consumption at user level. So, compressing such models in order to reduce the complexity at deployement level is proposed in this paper.
+
