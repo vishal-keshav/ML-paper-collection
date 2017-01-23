@@ -1,0 +1,6 @@
+Matrix properties, Linear transformation
+Covariance matrix
+Positive definite matrices
+Eigen value and Eigenvectors
+SVD - singular value decomposition
+Symmetric eigen decomposition
