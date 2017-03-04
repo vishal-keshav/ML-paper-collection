@@ -1,0 +1,3 @@
+Variance and degree of freedom division let best estimator of variance of population from sample
+Explanation:
+https://www.youtube.com/watch?v=D1hgiAla3KI
