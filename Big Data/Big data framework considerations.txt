@@ -1,0 +1,7 @@
+1. It should scale
+2. It should have variaty
+3. Reliable, fault tolerance
+4. Tweaking should be easier
+5. Can be integrated to other subsystem
+6. Date streaming ready
+7. Metadata support

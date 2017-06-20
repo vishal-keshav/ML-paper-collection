@@ -1,0 +1,8 @@
+1. Performance
+2. Fail over
+3. Logging
+4. Standarized dimention
+5. A/B testing
+6. Metric controlled and visualization
+7. Feature and model debugging
+8. Manual overid switch
