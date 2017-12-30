@@ -27,6 +27,22 @@ is given by a parallel light-weight convolution's (either spatial or depth wise)
 ![more_is_less][more_is_less]
 >[LINK](https://arxiv.org/abs/1703.08651)
 
+###Learning Efficient Convolutional Networks through Network Slimming
+
+```
+Problem solved: Reduction of input input channels that have near
+zero activation by enforcing L1 norm to be zero along with regularization
+effect. Lesser the input channels, faster the inference.
+```
+
+* Input channel are pruned during training by enforcing L1 norm to become zero.
+* L1 regularization on scaling factor of batch normalization layers per channel does not require any architectural changes.
+* Zero L1 enforcement per channel is achieved by addition of L1 norm of batch in the total cost function which then is needed to be minimized.
+* A little bit in drop of accuracy can be restored by retraining while multi-pass scheme can be applied to push more channel pruning
+
+![network_slimming][network_slimming]
+>[LINK](https://arxiv.org/abs/1708.06519v1)
+
 ## Papers from 2016
 
 ###EIE: Efficient Inference Engine on Compressed Deep Neural Network
@@ -55,3 +71,5 @@ compressed model using CSC format for inference.
 [cover_pic]: https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/cover.jpg
 [more_is_less]: https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/more_is_less.jpg
 [EIE]: https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/EIE.jpg
+[network_slimming]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/network_slimming.jpg
