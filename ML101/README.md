@@ -60,9 +60,26 @@ of convolution at current layer and next layer decreases.
 ![filter_pruning][filter_pruning]
 >[LINK](https://arxiv.org/abs/1608.08710v3)
 
+### Data-Driven Sparse Structure Selection for Deep Neural Networks
+
+```
+Problem solved: A systematic approach to prune structures is a
+deep network including filters or neurons, resnet blocks and grouped
+convolution (cardinality) is presented. Additional parameters
+in cost function is enforced to zero in order to realize structure
+pruning.
+```
+
+* A general end-to-end framework for pruning structures at once without the need for retraining.
+* Scaling factors is not needed to be necessarily associated to network weights (so does the gradients), these are generalized parameters and gradients are computed in additions to weight gradients
+* Accelerated Proximal Gradient is adopted for scaling factor training
+
+![sparse_structure][sparse_structure]
+>[LINK](https://arxiv.org/abs/1707.01213v2)
+
 ## Papers from 2016
 
-###EIE: Efficient Inference Engine on Compressed Deep Neural Network
+### EIE: Efficient Inference Engine on Compressed Deep Neural Network
 
 ```
 Problem solved: To fit whole network model in cache
@@ -92,3 +109,5 @@ compressed model using CSC format for inference.
 https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/network_slimming.jpg
 [filter_pruning]:
 https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/filter_pruning.jpg
+[sparse_structure]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/sparse_structure.jpg
