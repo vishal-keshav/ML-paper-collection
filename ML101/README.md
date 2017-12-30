@@ -27,7 +27,7 @@ is given by a parallel light-weight convolution's (either spatial or depth wise)
 ![more_is_less][more_is_less]
 >[LINK](https://arxiv.org/abs/1703.08651)
 
-###Learning Efficient Convolutional Networks through Network Slimming
+### Learning Efficient Convolutional Networks through Network Slimming
 
 ```
 Problem solved: Reduction of input input channels that have near
@@ -42,6 +42,23 @@ effect. Lesser the input channels, faster the inference.
 
 ![network_slimming][network_slimming]
 >[LINK](https://arxiv.org/abs/1708.06519v1)
+
+### Pruning Filters For Efficient Convnets
+
+```
+Problem solved: Reduction in number of filters with low L1 norm.
+These filters are assumed to have insignificant contribution to
+output channels. With reduced filters, both complexity of computation
+of convolution at current layer and next layer decreases.
+```
+
+* Filters in a given layer of a trained model are compared against each other based on L1 norm, and removed with lease (proportionally)
+* Removal of filters is done in a single shot for whole network, after which training can be done to restore accuracy
+* Pruning filters across multiple layer can be done in either independent or greedy way.
+* Sensitivity of pruning filters in a given layer is measured by the rate at which accuracy decreases with respect to number of pruned filter. Highly sensitive layers are left out for pruning.
+
+![filter_pruning][filter_pruning]
+>[LINK](https://arxiv.org/abs/1608.08710v3)
 
 ## Papers from 2016
 
@@ -73,3 +90,5 @@ compressed model using CSC format for inference.
 [EIE]: https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/EIE.jpg
 [network_slimming]:
 https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/network_slimming.jpg
+[filter_pruning]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/filter_pruning.jpg
