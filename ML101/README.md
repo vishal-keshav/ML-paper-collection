@@ -127,6 +127,21 @@ flexibility than resnets.
 ![deluge_net][deluge_net]
 >[LINK](https://arxiv.org/abs/1611.05552v5)
 
+### Deep Pyramidal Residual Networks
+
+```
+Problem solved: Through empirical studies, it was found that
+increase in feature map dimention at residual blocks significantly
+increase the resnet burden at those layers. Thus, a gradual increase
+in feature map depth is introduced which increase accuracy.
+```
+
+* Pyramidal shape is introduced which gradually increase the filters at every layer. Skip connections are done through zero padding instead of 1X1 convolution.
+* Several pyramidal designs are explored which increase the filters as a function of layer index.
+
+![pyramid_net][pyramid_net]
+>[LINK](https://arxiv.org/abs/1610.02915v4)
+
 ## Papers from 2016
 
 ### EIE: Efficient Inference Engine on Compressed Deep Neural Network
@@ -149,6 +164,20 @@ compressed model using CSC format for inference.
 ![EIE][EIE]
 >[LINK](https://arxiv.org/abs/1602.01528v2)
 
+### Deep Networks with Stochastic Depth
+
+```
+Problem solved: Reduction is training time while improving
+the generalization accuracy by randomly shortcutting the inputs
+to next to next layer using identity function (as used in resnet)
+```
+* Using bernoulli random variable, dropping the layer reduce the train time. At test time, layers are preserved. So, while training, networks are shallower and at inference, they are deeper.
+* Increase in accuracy (as compared to similar static resnet design) is attributed to ensembling nature of many resnets.
+
+![stochastic_depth][stochastic_depth]
+>[LINK](https://arxiv.org/abs/1603.09382v3)
+
+
 ## Papers from 2015
 
 
@@ -167,3 +196,7 @@ https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/criteria_pr
 https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/condense_net.jpg
 [deluge_net]:
 https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/deluge_net.jpg
+[stochastic_depth]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/stochastic_depth.jpg
+[pyramid_net]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/pyramid_net.jpg
