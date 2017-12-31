@@ -77,6 +77,56 @@ pruning.
 ![sparse_structure][sparse_structure]
 >[LINK](https://arxiv.org/abs/1707.01213v2)
 
+### Pruning Convolutional Neural Networks For Resource Efficient Inference
+
+```
+Problem solved: Evaluates/proposes the greedy criterion for pruning
+feature maps with an objective of minimizing the cost difference
+before and after pruning along with L1 norm constraints on pruned
+weights. With FLOPs criteria, it achieves resource efficient inference.
+```
+* It formalizes the gated pruning (i.e. if this feature channel be pruned or not) based on greedy criteria such as minimized weight, mean, deviation of activation, information gain, first order taylor expansion etc.
+* System has two steps, pruning in which based on criteria, the importance of neurons is evaluated and pruned
+* Training in which it trains the network with constrained cost object in consideration.
+
+![criteria_pruning][criteria_pruning]
+>[LINK](https://arxiv.org/abs/1611.06440v2)
+
+### CondenseNet: An Efficient DenseNet using Learned Group Convolutions
+
+```
+Problem solved: Improves the dense-net by introducing the concept
+of learned group convolution. Condensing and optimization
+(both being the part of training phase) helps prune filters per
+logical groups which gets re-arranged by indexing to formulate
+normal group convolution. Better design strategy for dense-net
+is also proposed.
+```
+* Exponential growth rate of input channel is compensated by using depth wise separable convolution in case of dense net. Condense net improvises this by group convolution that learns the grouping.
+* Method used allows groups to automatically select appropriate channels or not use some at all. Since this architecture follows dense-net, non-used channels will be useful in another layer.
+* Condense stage involves pruning per group by sparsity regularizer and optimization stage (second half of training stage) involves re-arranging and indexing of input filters for group convolution.
+
+![condense_net][condense_net]
+>[LINK](https://arxiv.org/abs/1711.09224v1)
+
+### DelugeNets: Deep Networks with Efficient and Flexible Cross-layer Information Inflows
+
+```
+Problem solved: Effectively propagating cross layers parameters
+as compared to residual blocks but at the same time being more
+efficient that dense-nets. Through cross-layer depthwise convolution
+the efficient information flow is possible whilst providing more
+flexibility than resnets.
+```
+
+* Per block, composite network is used (bottle neck design) having same map dimentions.
+* In one block, inputs from each preceding layers are convolved by point wise convolution channel wise. In other words, for a given channel c, all the filter maps at channel c from preceding layers are segregated and convolved depthwise to get filter map of channel c in the input layer. Same process to all channels.
+* For block transition (where dimention changes), 3X3 strided filters are applied to match the input dimentions.
+* Whole idea is to have cross layer separable convolution to reduce computation complexity.
+
+![deluge_net][deluge_net]
+>[LINK](https://arxiv.org/abs/1611.05552v5)
+
 ## Papers from 2016
 
 ### EIE: Efficient Inference Engine on Compressed Deep Neural Network
@@ -111,3 +161,9 @@ https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/network_sli
 https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/filter_pruning.jpg
 [sparse_structure]:
 https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/sparse_structure.jpg
+[criteria_pruning]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/criteria_pruning.jpg
+[condense_net]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/condense_net.jpg
+[deluge_net]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/deluge_net.jpg
