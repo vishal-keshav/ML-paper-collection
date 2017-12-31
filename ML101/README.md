@@ -9,6 +9,8 @@ Ideas from these paper have been extracted and presented in a simplified manner.
 ```
 ## Papers yet to be published
 
+----
+
 ## Papers from 2017
 
 ### More is Less: A More Complicated Network with Less Inference Complexity
@@ -27,6 +29,8 @@ is given by a parallel light-weight convolution's (either spatial or depth wise)
 ![more_is_less][more_is_less]
 >[LINK](https://arxiv.org/abs/1703.08651)
 
+-----
+
 ### Learning Efficient Convolutional Networks through Network Slimming
 
 ```
@@ -42,6 +46,8 @@ effect. Lesser the input channels, faster the inference.
 
 ![network_slimming][network_slimming]
 >[LINK](https://arxiv.org/abs/1708.06519v1)
+
+-----
 
 ### Pruning Filters For Efficient Convnets
 
@@ -60,6 +66,8 @@ of convolution at current layer and next layer decreases.
 ![filter_pruning][filter_pruning]
 >[LINK](https://arxiv.org/abs/1608.08710v3)
 
+----
+
 ### Data-Driven Sparse Structure Selection for Deep Neural Networks
 
 ```
@@ -77,6 +85,8 @@ pruning.
 ![sparse_structure][sparse_structure]
 >[LINK](https://arxiv.org/abs/1707.01213v2)
 
+----
+
 ### Pruning Convolutional Neural Networks For Resource Efficient Inference
 
 ```
@@ -91,6 +101,8 @@ weights. With FLOPs criteria, it achieves resource efficient inference.
 
 ![criteria_pruning][criteria_pruning]
 >[LINK](https://arxiv.org/abs/1611.06440v2)
+
+----
 
 ### CondenseNet: An Efficient DenseNet using Learned Group Convolutions
 
@@ -108,6 +120,8 @@ is also proposed.
 
 ![condense_net][condense_net]
 >[LINK](https://arxiv.org/abs/1711.09224v1)
+
+----
 
 ### DelugeNets: Deep Networks with Efficient and Flexible Cross-layer Information Inflows
 
@@ -127,6 +141,8 @@ flexibility than resnets.
 ![deluge_net][deluge_net]
 >[LINK](https://arxiv.org/abs/1611.05552v5)
 
+----
+
 ### Deep Pyramidal Residual Networks
 
 ```
@@ -141,6 +157,27 @@ in feature map depth is introduced which increase accuracy.
 
 ![pyramid_net][pyramid_net]
 >[LINK](https://arxiv.org/abs/1610.02915v4)
+
+----
+
+### Deep Expander Networks: Efficient Deep Networks from Graph Theory
+
+```
+Problem solved: Solves high connectivity (for good representational
+power by efficient information flow through network) but remaining
+under a given level of sparsity. This reduces the inference time
+with similar accuracy levels.
+```
+
+* Explores graph theory (expanders graphs), in which layer connections are modelled as several bipartite graphs connected after each other.
+* In each bipartite connections, limits the number of edges but still having all connections globally.
+* For structured sparsity, random expanders and explcit expanders are proposed.
+* Explicit expanders are formulated under XOR operation of some group generators and output vertex set.
+
+![x_net][x_net]
+>[LINK](https://arxiv.org/abs/1711.08757v2)
+
+----
 
 ## Papers from 2016
 
@@ -164,6 +201,8 @@ compressed model using CSC format for inference.
 ![EIE][EIE]
 >[LINK](https://arxiv.org/abs/1602.01528v2)
 
+----
+
 ### Deep Networks with Stochastic Depth
 
 ```
@@ -177,9 +216,40 @@ to next to next layer using identity function (as used in resnet)
 ![stochastic_depth][stochastic_depth]
 >[LINK](https://arxiv.org/abs/1603.09382v3)
 
+-----
+
+### PerforatedCNNs: Acceleration through Elimination of Redundant Convolutions
+
+```
+Problem solved: Reduction in convolution computation by extrapolating
+some elements by nearby values. A perforated mask is created
+that describes what part needs to be have convolved value
+and which parts can be extrapolated by nearby value.
+```
+* Perforation masks are created statically or upon the batch observations through out training. Static masks such as uniformly randomized, grid and pooling structured mask is proposed.
+* Based on training data (statistically), impact mask is proposed that removes least important positions such that extrapolation effects on accuracy for those positions can be minimized.
+* At each iteration, perforation rate at each layer is chosen such that impact on the loss is minimized. This is greedy approach.
+
+![perforation][perforation]
+>[LINK](https://arxiv.org/abs/1504.08362)
+
+-----
 
 ## Papers from 2015
 
+### Compressing Neural Networks with the Hashing Trick
+
+```
+Problem solved: To reduce the model size, weight sharing techniques
+is proposed where instead of storing actual weight, hash key is
+stored and at inference time, hash value is restored from weight
+array.
+```
+
+* Hash trick method is used.
+
+![hashed_net][hashed_net]
+>[LINK](https://arxiv.org/abs/1504.04788v1)
 
 [cover_pic]: https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/cover.jpg
 [more_is_less]: https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/more_is_less.jpg
@@ -200,3 +270,9 @@ https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/deluge_net.
 https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/stochastic_depth.jpg
 [pyramid_net]:
 https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/pyramid_net.jpg
+[perforation]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/perforation.jpg
+[x_net]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/x_net.jpg
+[hashed_net]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/hashed_net.jpg
