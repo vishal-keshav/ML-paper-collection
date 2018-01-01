@@ -179,6 +179,145 @@ with similar accuracy levels.
 
 ----
 
+### Aggregated Residual Transformations for Deep Neural Networks
+
+```
+Problem solved: Improves the representational power of network to
+reduce the number of parameters used. Proposed cardinality as a
+hyper-parameter along with width and depth of the network which
+is easy to manage. Aggregation of transformed input with addition
+to produce output is proposed. Design space for mentioned network
+has lesser parameters (which is cardinality). Increasing cardinality
+is more effective than increasing depth or width to gain accuracy.
+```
+
+* Homogeneous input transform is proposed for implementation which is followed by aggregation or addition (bottleneck architecture).
+* Conceptual difference as compared to Inception-resnet lies in topology followed by each transformation paths. Its the same in this proposal.
+* Conceptual difference as compared to group convolution lies in the fact that grouping can be done only upto one layer, whereas proposed system goes beyond one layer of transformation path.
+
+![res_nex][res_next]
+>[LINK](https://arxiv.org/abs/1611.05431v2)
+
+----
+
+### DeepRebirth: Accelerating Deep Neural Network Execution on Mobile Devices
+
+```
+Problem solved: Inference acceleration by streamline slimming
+(combining across layer depth) and branch slimming (combining
+along network width) of tensors and non-tensors. Sparsity of tensors
+are exploited with less relevant high utilization non-tensors
+through combination and retraining.
+```
+
+* Observation about excessive runtimes of non-tensor units are made and possibility of combining those with tensor nearby tensor units is explored.
+
+![deep_rebirth][deep_rebirth]
+>[LINK](https://arxiv.org/abs/1708.04728v1)
+
+----
+
+### Accelerating Convolutional Neural Networks for Continuous Mobile Vision via Cache Reuse
+
+```
+Problem solved: Faster inference in continuous image data stream
+in mobile device is proposed by considering the previous layer
+image similarity with the current input. The idea has been generalized
+to reusing the blocks of initial convolution computations.
+Image similarity is measure block wise such that similar blocks
+are invariant of translation (diamond search).
+```
+
+* For computation overhead, image blocks are compared for similarity.
+* For cache erosion (more relevant in deeper layers) where spatial location of data starts making less sense and cache reuse cannot be determined, reuse is restricted to initial layers.
+* Similar to input raw image, convolution output can be treated as input for next layer are cache reuse by spatially comparing the similarity is possible.
+
+![cnn_cache][cnn_cache]
+>[LINK](https://arxiv.org/abs/1712.01670v1)
+
+----
+
+### BranchyNet: Fast Inference via Early Exiting from Deep Neural Networks
+
+```
+Problem solved: Proposes the usage of branches in deeper network
+for early stopping and as a way to regularize network. Conventional
+joint optimization based training is used.
+```
+
+* Branches helps in faster inferences where convolution of other branches are dropped.
+* As a bi-product of this architecture, regularization and mitigation of vanishing gradient is achieved.
+* Design space for putting branches at different entry points of main branch is explored.
+* Better caching efficiency on CPU is shown.
+
+![branchy_nets][branchy_nets]
+>[LINK](https://arxiv.org/abs/1709.01686v1)
+
+----
+
+### Crescendo Net: A Simple Deep Convoltional Neural Network with Ensemble Behavior
+
+```
+Problem solved: Basic building block called crescendo blocks are
+proposed wherein multiple convolution parallel layers with incremental
+depth enable whole network to act as ensembled network. As a results
+representational strength increases without using residuals.
+```
+
+* The different depths of parallel paths lead to different receptive fields and therefore generate features in
+different abstract levels.
+* Design space for crescendo blocks are explored for less hyper-parameter tuning.
+* Memory efficient training is proposed where other parallel paths are frozen when training for one path is going on.
+* Like fractals-nets, drop-connects is used (dropping paths) along with dropouts.
+
+![crescendo_nets][crescendo_nets]
+>[LINK](https://arxiv.org/abs/1710.11176v1)
+
+----
+
+### BlockDrop: Dynamic Inference Paths in Residual Networks
+
+```
+Problem solved: Upon observation that human visual system spend
+less time on simple object and more on complex lead to a dynamic
+inferencing system that upon context (complexity of input), drops
+several convolution operation in between (can be modelled as dropping
+residual blocks). Policy for dropping residula blocks comes from
+policy network trained for maximizing accuracy while using minimum
+inference blocks(reward is formulated in such a way in reinforcement
+learning). Lesser computation on contextual inputs leads to reduction
+in inferencing time.
+```
+
+* Pretrained resnets are jointly trained with policy network that has to output binary vector representing if blocks needs to be dropped or not based on difficulty of input image. Such policy network implicitly learns the input complexity representation.
+* Drop or not per layer is modelled as K dimentional bernoulli. To train the policy network, expected reward is maximized by expected gradient training procedure.
+* Initial steps use curriculum learning followed by joint tuning of policy network and resnet.
+
+![block_drop][block_drop]
+>[LINK](https://arxiv.org/abs/1711.08393v1)
+
+----
+
+### ThiNet: A Filter Level Pruning Method for Deep Neural Network Compression
+
+```
+Problem solved: Filters of a given layer is pruned such that output
+of next to next layer is not being affected. This method differs in
+the regard that it does not consider immediate layer's channel activation
+in its optimization problem instead relies of having a network with
+maximum representation capacity. Doing so leads to smaller network
+without accuracy loss.
+```
+
+* After pruning, fine tuning is done to regain the accuracy.
+* Method is data driven as training example is used to determine the importance of a filter based on changes in next to next layer's output(sampled for different pixel, spatial location).
+* Under optimization problem for next channel's representaion strength, predefine compression rate is encoded which determines how many channels and hence how many previous layer filters has to be pruned.
+
+![thi_net][thi_net]
+>[LINK](https://arxiv.org/pdf/1707.06342v1.pdf)
+
+----
+
 ## Papers from 2016
 
 ### EIE: Efficient Inference Engine on Compressed Deep Neural Network
@@ -276,3 +415,17 @@ https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/perforation
 https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/x_net.jpg
 [hashed_net]:
 https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/hashed_net.jpg
+[res_next]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/res_next.jpg
+[deep_rebirth]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/deep_rebirth.jpg
+[cnn_cache]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/cnn_cache.jpg
+[branchy_nets]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/branchy_nets.jpg
+[crescendo_nets]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/crescendo_nets.jpg
+[block_drop]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/block_drop.jpg
+[thi_net]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/thi_net.jpg
