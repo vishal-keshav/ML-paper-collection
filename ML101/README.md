@@ -318,6 +318,24 @@ without accuracy loss.
 
 ----
 
+### EraseReLU: A Simple Way to Ease the Training of Deep Convolution Neural Networks
+
+```
+Problem solved: Eased the training along with accuracy improvements
+along lesser amount of computations by observing that network
+become too non-linearized by stacking up non-linear units. It proposes
+to proportionally remove relu units from each block of network module.
+```
+
+* Going from sigmoid to relu helped a portion of neurons to get non-linearized instead of individual neurons per layer. Still, for such layers, application of relu did not linearize negative units.
+* Removing relu in proportion of number of layers helped to get all neurons linearize for several layers.
+* Removing relu from several spots has lead to increase in representational power of networks with less complexity.
+
+![erase_relu][erase_relu]
+>[LINK](https://arxiv.org/abs/1709.07634v2)
+
+----
+
 ## Papers from 2016
 
 ### EIE: Efficient Inference Engine on Compressed Deep Neural Network
@@ -429,3 +447,5 @@ https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/crescendo_n
 https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/block_drop.jpg
 [thi_net]:
 https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/thi_net.jpg
+[erase_relu]:
+https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/erase_relu.jpg
