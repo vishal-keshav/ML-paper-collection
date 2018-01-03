@@ -408,44 +408,25 @@ array.
 ![hashed_net][hashed_net]
 >[LINK](https://arxiv.org/abs/1504.04788v1)
 
-[cover_pic]: https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/cover.jpg
-[more_is_less]: https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/more_is_less.jpg
-[EIE]: https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/EIE.jpg
-[network_slimming]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/network_slimming.jpg
-[filter_pruning]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/filter_pruning.jpg
-[sparse_structure]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/sparse_structure.jpg
-[criteria_pruning]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/criteria_pruning.jpg
-[condense_net]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/condense_net.jpg
-[deluge_net]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/deluge_net.jpg
-[stochastic_depth]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/stochastic_depth.jpg
-[pyramid_net]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/pyramid_net.jpg
-[perforation]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/perforation.jpg
-[x_net]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/x_net.jpg
-[hashed_net]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/hashed_net.jpg
-[res_next]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/res_next.jpg
-[deep_rebirth]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/deep_rebirth.jpg
-[cnn_cache]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/cnn_cache.jpg
-[branchy_nets]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/branchy_nets.jpg
-[crescendo_nets]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/crescendo_nets.jpg
-[block_drop]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/block_drop.jpg
-[thi_net]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/thi_net.jpg
-[erase_relu]:
-https://github.com/bulletcross/ML-paper-collection/blob/master/ML101/erase_relu.jpg
+[cover_pic]: res/cover.jpg
+[more_is_less]: res/more_is_less.jpg
+[EIE]: res/EIE.jpg
+[network_slimming]:res/network_slimming.jpg
+[filter_pruning]:res/filter_pruning.jpg
+[sparse_structure]:res/sparse_structure.jpg
+[criteria_pruning]:res/criteria_pruning.jpg
+[condense_net]:res/condense_net.jpg
+[deluge_net]:res/deluge_net.jpg
+[stochastic_depth]:res/stochastic_depth.jpg
+[pyramid_net]:res/pyramid_net.jpg
+[perforation]:res/perforation.jpg
+[x_net]:res/x_net.jpg
+[hashed_net]:res/hashed_net.jpg
+[res_next]:res/res_next.jpg
+[deep_rebirth]:res/deep_rebirth.jpg
+[cnn_cache]:res/cnn_cache.jpg
+[branchy_nets]:res/branchy_nets.jpg
+[crescendo_nets]:res/crescendo_nets.jpg
+[block_drop]:res/block_drop.jpg
+[thi_net]:res/thi_net.jpg
+[erase_relu]:res/erase_relu.jpg
