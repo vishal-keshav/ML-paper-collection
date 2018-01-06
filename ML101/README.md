@@ -407,8 +407,22 @@ receptive field of that convolution block.
 * Determination of block parameters such as number of groups in IGC and GC is done through minimizing a developed cost function per convolution block remaining under the full channel receptive field constraints.
 
 ![clc_net][clc_net]
-
 >[LINK](https://arxiv.org/abs/1712.06145v2)
+
+----
+### The Enhanced Hybrid MobileNet
+
+```
+Problem solved: With some heuristics, paper managed to improve the baseline
+mobilenet accuracy. Added a third parameter depth and played around with
+fractional pooling.
+```
+
+* Have formulated the computation and parameters ratio with newly added depth parameter.
+* With heuristics approach, improved the baseline accuracy while maintaining the parameter and computation ratio same.
+
+![en_mob][en_mob]
+>[LINK](https://arxiv.org/abs/1712.04698v1)
 
 ----
 
@@ -510,3 +524,4 @@ array.
 [LBCNN]:res/lbcnn.jpg
 [abc_net]:res/abc_net.jpg
 [clc_net]:res/clc_net.jpg
+[en_mob]:res/en_mob.jpg
