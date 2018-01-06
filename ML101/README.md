@@ -335,6 +335,82 @@ to proportionally remove relu units from each block of network module.
 >[LINK](https://arxiv.org/abs/1709.07634v2)
 
 ----
+### SEP-Nets: Small and Effective Pattern Networks
+
+```
+Problem Solved: Observation that binarizing only 3X3 convolution(spatial
+feature extraction) and not 1X1 convolution (feature transformation) may
+lead to model compression with similar accuracy but a lower computation.
+Proposes Patter Residual Block on same concept, from which SEP-Nets module
+is constructed.
+```
+
+* At an equivalent accuracy of MobileNets, model size has been compressed.
+* Binarization can be done from initiation or train-binarize-tune method can be adopted.
+* Binarization of non-transformation convolution helps faster computation at inference time.
+* Instead of concatenation, addition operation is used where 1X1 works as inter residual connection.
+
+![sep_net][sep_net]
+>[LINK](https://arxiv.org/abs/1706.03912v1)
+
+----
+### Local Binary Convolutional Neural Networks
+
+```
+Problem solved: By employing the techniques of local binary convolution
+(predefined filters) instead of learnable weights, paper proposes to reduce the
+number of parameters required to convolve. Predefined convolution followed by
+non-linear activation and the followed by 1X1 learnable convolution composes
+LBCNN modules.
+```
+
+* LBC anchor weights can be stochastically generated with required sparsity.
+* Difference map from LBC is produced by similar convolution but with pre-defined weights. Variable pivot and ordering is hence defined by that.
+* Bitmap from difference map is produced by using non-linearity such as sigmoid.
+* To compose the feature map, normal 1X1 convolution is used.
+
+![LBCNN][LBCNN]
+>[LINK](https://arxiv.org/abs/1608.06049v2)
+
+----
+
+### Towards Accurate Binary Convolutional Neural Network
+
+```
+Problem Solved: Unlike other binarization technique which straight forward binarizes
+weights and activation maps, this paper proposes to approximate the full precision by
+multiple binary filters or activations. With same accuracy, this technique has shown to
+be computationally efficient.
+```
+* Using straight thorough estimator, binary filters can be trained. Further, binary filters(calculated using full precision weight mean and variance) may contain sift operator that can be learned.
+* Binary filter coefficients are computed at every train forward iteration by solving linear regression over actual weights and approximated weights.
+* Whole weight binarization and channel level binarization are suggested methods.
+* Activation in the similar way is binarized using multiple binary activation maps, in order to accelerated bitwise computation on FPGA.
+
+![abc_net][abc_net]
+>[LINK](https://arxiv.org/abs/1711.11294v1)
+
+----
+### clcNet: Improving the Efficiency of Convolutional Neural Network using Channel Local Convolutions
+
+```
+Problem Solved: This paper proposes a structured way of composing group convolution
+such that full channel receptive field in a given block is 100 percent.
+This introduces the idea of more generalized channel local convolution
+and acyclic graph called channel dependency graph that connects
+output channel to input channel in a convolution block and measure channel
+receptive field of that convolution block.
+```
+
+* Observation such as having full channel receptive field in a convolution block is required to have efficient information flow for better representational power in a CNN.
+* Interlaced group convolution, one of the two building block for cnc net is developed which with group convolution completes a convolution block.
+* Determination of block parameters such as number of groups in IGC and GC is done through minimizing a developed cost function per convolution block remaining under the full channel receptive field constraints.
+
+![clc_net][clc_net]
+
+>[LINK](https://arxiv.org/abs/1712.06145v2)
+
+----
 
 ## Papers from 2016
 
@@ -430,3 +506,7 @@ array.
 [block_drop]:res/block_drop.jpg
 [thi_net]:res/thi_net.jpg
 [erase_relu]:res/erase_relu.jpg
+[sep_net]:res/sep_net.jpg
+[LBCNN]:res/lbcnn.jpg
+[abc_net]:res/abc_net.jpg
+[clc_net]:res/clc_net.jpg
