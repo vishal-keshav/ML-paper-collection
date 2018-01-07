@@ -426,6 +426,24 @@ fractional pooling.
 
 ----
 
+### DropMax: Adaptive Stochastic Softmax
+
+```
+Problem Solved: Paper proposes to drop exponential terms from logits
+randomly so that network becomes an ensemble of exponential number of
+networks each trained on a different subset of problem. Logit dropout
+probabilities are learned during training steps.
+```
+
+* Each training step is considered to be ensemble of exponential models.
+* Computationally intractable probability calculation during inference is approximated with monte-carlo approximations.
+* Idea is to drop classes which are not being confused much so that sub-problem being solved is smaller.
+
+![drop_max][drop_max]
+>[LINK](https://arxiv.org/abs/1712.07834v2)
+
+---
+
 ## Papers from 2016
 
 ### EIE: Efficient Inference Engine on Compressed Deep Neural Network
@@ -525,3 +543,4 @@ array.
 [abc_net]:res/abc_net.jpg
 [clc_net]:res/clc_net.jpg
 [en_mob]:res/en_mob.jpg
+[drop_max]:res/drop_max.jpg
