@@ -1,5 +1,0 @@
-1. Quality of data - Data cleanup and sample
-2. Data enrichment from external source
-3. Sync between real life and training data
-4. Supervised and unsupervised consideration
-5. Ensembling of multiple models
