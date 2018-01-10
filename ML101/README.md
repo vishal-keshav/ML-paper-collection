@@ -441,9 +441,148 @@ probabilities are learned during training steps.
 
 ![drop_max][drop_max]
 >[LINK](https://arxiv.org/abs/1712.07834v2)
+----
+
+### Improving CNN Performance with Min-Max Objective
+
+```
+Problem solved: The activation at each layer is visualized to
+be an object manifold (or a space whose shape inherently represent
+something) where each dimension corresponds to objective classes
+to be learned by the network. A cost is proposed that directly
+considers activation map in optimization target.
+```
+
+* Optimization tends to minimize compactness of each object manifold(feature variation) and maximize margin between different manifolds.
+* Applying cost to arbitrary layer takes care of all the previous layers in network, due to backpropagation.
+* To make gradient computation tractable, kernel trick is used.
+
+![min_max][min_max]
+>[LINK](https://www.ijcai.org/Proceedings/16/Papers/286.pdf)
+
+----
+### Dilated Residual Networks
+```
+Problem solved: Empirical studies on the effect of output and
+receptive field leads to the conclusion that use of dilated
+convolution filters in the later layer in state-of-art networks
+increase accuracy.
+```
+
+* Gridding artifacts due to dilation has been removed by removing max pooling and adding additional layers with decreasing dilation rates and removing residuals in those layers.
+* Architecture for dilated residual network (DRN) is presented based on above consideration and it is shown that increase in accuracy has higher as compared to accuracy that would have resulted by increase in parameter.
+
+![dilated_res][dilated_res]
+>[LINK](https://arxiv.org/abs/1705.09914)
+
+----
+
+### Interleaved Group Convolutions for Deep Neural Networks
+```
+Problem solved: Using two group convolution, an interleaved grouped
+convolution block is created which proves to be wider that normal
+convolution. Wider network helped network represent more and had
+higher accuracy.
+```
+
+* Permutations in primary group convolution and secondary convolution each makes block equivalent to normal convolution.
+* Interleaving in secondary group is done such that each group has one filter map from every primary group. After applying pointwise convolution on secondary group, channels are permuted back for input to next interleaved group convolution block.
+* Optimal grouping factor has been derived to maximize width of the block.
+
+![inter_group][inter_group]
+>[LINK](https://arxiv.org/abs/1707.02725v2)
 
 ---
 
+### Incomplete Dot Products for Dynamic Computation Scaling in Neural Network Inference
+
+```
+Problem solved: A tunable is provided to adjust how many filters
+to be used during inference dynamically based of computation
+requirements. Filters are arranged from highly important to least
+important (similar to singular values in SVD). Profiles is presented
+by a set of coefficients (hinting how may filters to be used in each
+layer)
+```
+
+* Incomplete dot product just does the dot products of filters and input channels as required by the profile.
+* Arrangement of convolution channels and filter from high importance to low importance is possible because of the training procedure followed.
+* All coefficient to one is equivalent to complete dot product.
+
+![incomplete_dot][incomplete_dot]
+>[LINK](https://arxiv.org/abs/1710.07830v1)
+
+-----
+### SwGridNet: A Deep Convolutional Neural Network based on Grid Topology for Image Classification
+
+```
+Problem solved: Proposed a grid like structure where output to a
+unit (convolution) is fed by splitting the input from previous
+block and through previous dimensionally neighboring unit. Such
+construction enables architecture to act like ensemble of many
+models as suggested by other simple architecture such as res-net.
+```
+* Splitting is followed by convolution at grid level which is followed by concatenation from all the unit and input from previous block.
+* Convolution units in a grid can be constructed by varying depth path(which is output feed to deeper neighbor)
+* Number of output channels from each unit can be different from its neighboring units but total input will be equal to the sum of all outputs from neighboring units.
+
+![sw_grid][sw_grid]
+>[LINK](https://arxiv.org/abs/1709.07646v3)
+----
+### ShaResNet: reducing residual network parameter number by sharingweights
+
+```
+Problem solved: Upon observation that in a group of residual
+blocks(same stage) with same dimensionality (where no resolution
+reduction is done), spatial convolution can be shared among those
+residual blocks. By using a shared filters among all the pointwise
+convolution (or non spatial convolution) on a given stage among res
+blocks, computation can be reduced with accuracy loss.
+```
+
+* Network is trained normally, end-to-end
+* Gradients are back propagated as usual to pointwise convolution and accumulated for shared weight per stage
+
+![sha_res][sha_res]
+>[LINK](https://arxiv.org/abs/1702.08782v2)
+
+----
+
+### Convolutional Networks with Adaptive Computation Graphs
+```
+Problem solved: Paper proposes a method to adaptively switch off
+block computation (in res-net setting) and allow flow of data to
+net layers. This adaptive switching is based on input or context
+passed as an input. By constraining on number of times a layer
+should be switched off(enforcement during training step), gating
+mechanism adapts itself to switch off gates for certain inputs
+reducing computation complexity. Network is also robust to
+adversarial attacks.
+```
+* Unlike highway network which is based on soft thresholding, this is hard thresholding. It focuses on utilizing important parts of computation block which have been made efficient to handle certain input.
+* At training step, cost function constrain on number of times a layer should be executed. Soft decision of gating is used during training.
+
+![adaptive][adaptive]
+>[LINK](https://arxiv.org/abs/1711.11503v1)
+
+----
+
+### SkipNet: Learning Dynamic Routing in Convolutional Networks
+
+```
+Problem solved: It is observed that a complex example needs few
+extra layers of computation to get correctly predicted. So for
+non-complex inputs, some layers can be skipped. Skipping a
+computation block is done through passing previous layer input
+to a gate(composed of RNN, shared by each layer) component. Using
+softmax, gate determines if layer be skipped or not.
+```
+* Hybrid RL training procedure where supervised training step with softmax gating is used for backpropagation to work. RL is used to minimize the computation reward (less computation is rewarding) along with higher accuracy.
+* LSTM RNN is used and shared among layers to reduce gating overhead.
+
+![skip_net][skip_net]
+>[LINK](https://arxiv.org/abs/1711.09485v1)
+----
 ## Papers from 2016
 
 ### EIE: Efficient Inference Engine on Compressed Deep Neural Network
@@ -500,7 +639,7 @@ and which parts can be extrapolated by nearby value.
 
 -----
 
-## Papers from 2015
+## Papers from 2015 and older
 
 ### Compressing Neural Networks with the Hashing Trick
 
@@ -515,6 +654,20 @@ array.
 
 ![hashed_net][hashed_net]
 >[LINK](https://arxiv.org/abs/1504.04788v1)
+
+### Tiled convolutional neural networks
+
+```
+Problem solved: An approach is presented where a weight is
+untied or unshared uptil certain distance of spatial location.
+This can effectively produce invariance to rotation and scaling
+```
+* Untying of weights are contrasted with tied weight where same set of parameter extracts features for a pixel location. An untied weight is equivalent to freely choose a different weight for a neighboring pixel.
+* Using a different weight per patch remains valid for certain distance until receptive field for certain feature remains relevant.
+* Unsupervised pre-training is used to initialize the weights before supervised backprop.
+
+![tiled_conv][tiled_conv]
+>[LINK](https://www-cs.stanford.edu/~jngiam/papers/LeNgiamChenChiaKohNg2010.pdf)
 
 [cover_pic]: res/cover.jpg
 [more_is_less]: res/more_is_less.jpg
@@ -544,3 +697,12 @@ array.
 [clc_net]:res/clc_net.jpg
 [en_mob]:res/en_mob.jpg
 [drop_max]:res/drop_max.jpg
+[tiled_conv]:res/tiled_conv.jpg
+[min_max]:res/min_max.jpg
+[dilated_res]:res/dilated_res.jpg
+[inter_group]:res/inter_group.jpg
+[incomplete_dot]:res/incomplete_dot.jpg
+[sw_grid]:res/sw_grid.jpg
+[sha_res]:res/sha_res.jpg
+[adaptive]:res/adaptive.jpg
+[skip_net]:res/skip_net.jpg
