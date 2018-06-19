@@ -1,9 +1,0 @@
-[High bias]Large difference between bias and train error?
-1. train bigger model
-2. trian longer with better optimizaion algorithms
-3. architecture/hyperparameters search
-
-[High variance]Large difference between train and validation error?
-1. more data
-2. regularization to reduce overfitting
-3. architecture/hyperparameter search
